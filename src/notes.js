@@ -37,7 +37,7 @@ function edit(dados){
 }
 
 function remove_person(person_name){
-    index = return_index(dados.nome);
+    index = return_index(person_name);
     if (index > -1){
         dict.splice(index, 1);
         return write_in_file(dict);
@@ -46,10 +46,10 @@ function remove_person(person_name){
 }
 
 function remove_attr(person_name, attr_person){
-    index = return_index(dados.nome);
+    index = return_index(person_name);
     if (index > -1){
         if (dict[index][attr_person]){
-            delete dict[index][attr_person]
+            delete dict[index][attr_person];
             return write_in_file(dict);
         }else {
             return chalk.red(`Atributo "${attr_person}" não identificado para a pessoa "${person_name}"`);
